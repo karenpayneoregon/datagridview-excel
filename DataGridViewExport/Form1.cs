@@ -37,7 +37,14 @@ public partial class Form1 : Form
 
         coreBindingNavigator1.DisableAddNewItems();
         coreBindingNavigator1.DisableRemoveItems();
+
+        aboutToolStripButton.Click += AboutToolStripButton_Click;
         
+    }
+
+    private void AboutToolStripButton_Click(object sender, EventArgs e)
+    {
+        MessageBox.Show("Test");
     }
 
     private void ExportButton_Click(object sender, EventArgs e)
@@ -94,4 +101,6 @@ public partial class Form1 : Form
 
         _bindingSource.Position = _bindingSource.IndexOf(contact);
     }
+
+
 }

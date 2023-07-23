@@ -47,9 +47,11 @@ namespace DataGridViewExport
             this.FindByIdButton = new System.Windows.Forms.Button();
             this.NumericUpDownIdentifier = new System.Windows.Forms.NumericUpDown();
             this.coreBindingNavigator1 = new WindowFormsControlsLibrary.CoreBindingNavigator();
+            this.aboutToolStripButton = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownIdentifier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.coreBindingNavigator1)).BeginInit();
+            this.coreBindingNavigator1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -222,11 +224,22 @@ namespace DataGridViewExport
             // coreBindingNavigator1
             // 
             this.coreBindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.coreBindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripButton});
             this.coreBindingNavigator1.Location = new System.Drawing.Point(0, 0);
             this.coreBindingNavigator1.Name = "coreBindingNavigator1";
             this.coreBindingNavigator1.Size = new System.Drawing.Size(834, 27);
             this.coreBindingNavigator1.TabIndex = 10;
             this.coreBindingNavigator1.Text = "coreBindingNavigator1";
+
+            // 
+            // aboutToolStripButton
+            // 
+            this.aboutToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.aboutToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.aboutToolStripButton.Name = "aboutToolStripButton";
+            this.aboutToolStripButton.Size = new System.Drawing.Size(54, 24);
+            this.aboutToolStripButton.Text = "About";
             // 
             // Form1
             // 
@@ -252,6 +265,8 @@ namespace DataGridViewExport
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownIdentifier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.coreBindingNavigator1)).EndInit();
+            this.coreBindingNavigator1.ResumeLayout(false);
+            this.coreBindingNavigator1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +291,7 @@ namespace DataGridViewExport
         private System.Windows.Forms.Button FindByIdButton;
         private System.Windows.Forms.NumericUpDown NumericUpDownIdentifier;
         private WindowFormsControlsLibrary.CoreBindingNavigator coreBindingNavigator1;
+        private System.Windows.Forms.ToolStripButton aboutToolStripButton;
     }
 }
 
