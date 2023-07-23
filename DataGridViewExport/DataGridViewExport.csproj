@@ -30,6 +30,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\BindingListLibrary\BindingListLibrary.csproj" />
 	  <ProjectReference Include="..\DataGridViewLibrary\DataGridViewLibrary.csproj" />
+	  <ProjectReference Include="..\WindowFormsControlsLibrary\WindowFormsControlsLibrary.csproj" />
 	</ItemGroup>
 
 </Project>

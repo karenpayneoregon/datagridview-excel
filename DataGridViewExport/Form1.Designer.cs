@@ -44,12 +44,18 @@ namespace DataGridViewExport
             this.UpdateFirstNameTextBox = new System.Windows.Forms.Button();
             this.FindAndUpdateButton = new System.Windows.Forms.Button();
             this.FindByFirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.FindByIdButton = new System.Windows.Forms.Button();
+            this.NumericUpDownIdentifier = new System.Windows.Forms.NumericUpDown();
+            this.coreBindingNavigator1 = new WindowFormsControlsLibrary.CoreBindingNavigator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownIdentifier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coreBindingNavigator1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IdColumn,
@@ -58,12 +64,12 @@ namespace DataGridViewExport
             this.PhoneColumn,
             this.EmailColumn,
             this.BirthDateColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(14, 16);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 50);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(807, 465);
+            this.dataGridView1.Size = new System.Drawing.Size(807, 431);
             this.dataGridView1.TabIndex = 0;
             // 
             // IdColumn
@@ -120,7 +126,7 @@ namespace DataGridViewExport
             // 
             // ExportButton
             // 
-            this.ExportButton.Location = new System.Drawing.Point(14, 540);
+            this.ExportButton.Location = new System.Drawing.Point(14, 506);
             this.ExportButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ExportButton.Name = "ExportButton";
             this.ExportButton.Size = new System.Drawing.Size(86, 31);
@@ -132,7 +138,7 @@ namespace DataGridViewExport
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(145, 545);
+            this.label1.Location = new System.Drawing.Point(14, 554);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 2;
@@ -141,7 +147,7 @@ namespace DataGridViewExport
             // IdLabel
             // 
             this.IdLabel.AutoSize = true;
-            this.IdLabel.Location = new System.Drawing.Point(221, 545);
+            this.IdLabel.Location = new System.Drawing.Point(94, 554);
             this.IdLabel.Name = "IdLabel";
             this.IdLabel.Size = new System.Drawing.Size(33, 20);
             this.IdLabel.TabIndex = 3;
@@ -181,11 +187,55 @@ namespace DataGridViewExport
             this.FindByFirstNameTextBox.Size = new System.Drawing.Size(162, 27);
             this.FindByFirstNameTextBox.TabIndex = 7;
             // 
+            // FindByIdButton
+            // 
+            this.FindByIdButton.Location = new System.Drawing.Point(602, 510);
+            this.FindByIdButton.Name = "FindByIdButton";
+            this.FindByIdButton.Size = new System.Drawing.Size(156, 29);
+            this.FindByIdButton.TabIndex = 8;
+            this.FindByIdButton.Text = "Find by id";
+            this.FindByIdButton.UseVisualStyleBackColor = true;
+            this.FindByIdButton.Click += new System.EventHandler(this.FindByIdButton_Click);
+            // 
+            // NumericUpDownIdentifier
+            // 
+            this.NumericUpDownIdentifier.Location = new System.Drawing.Point(434, 510);
+            this.NumericUpDownIdentifier.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.NumericUpDownIdentifier.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NumericUpDownIdentifier.Name = "NumericUpDownIdentifier";
+            this.NumericUpDownIdentifier.Size = new System.Drawing.Size(162, 27);
+            this.NumericUpDownIdentifier.TabIndex = 9;
+            this.NumericUpDownIdentifier.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // coreBindingNavigator1
+            // 
+            this.coreBindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.coreBindingNavigator1.Location = new System.Drawing.Point(0, 0);
+            this.coreBindingNavigator1.Name = "coreBindingNavigator1";
+            this.coreBindingNavigator1.Size = new System.Drawing.Size(834, 27);
+            this.coreBindingNavigator1.TabIndex = 10;
+            this.coreBindingNavigator1.Text = "coreBindingNavigator1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 642);
+            this.Controls.Add(this.coreBindingNavigator1);
+            this.Controls.Add(this.NumericUpDownIdentifier);
+            this.Controls.Add(this.FindByIdButton);
             this.Controls.Add(this.FindByFirstNameTextBox);
             this.Controls.Add(this.FindAndUpdateButton);
             this.Controls.Add(this.UpdateFirstNameTextBox);
@@ -200,6 +250,8 @@ namespace DataGridViewExport
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Export to file";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericUpDownIdentifier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.coreBindingNavigator1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,6 +273,9 @@ namespace DataGridViewExport
         private System.Windows.Forms.Button UpdateFirstNameTextBox;
         private System.Windows.Forms.Button FindAndUpdateButton;
         private System.Windows.Forms.TextBox FindByFirstNameTextBox;
+        private System.Windows.Forms.Button FindByIdButton;
+        private System.Windows.Forms.NumericUpDown NumericUpDownIdentifier;
+        private WindowFormsControlsLibrary.CoreBindingNavigator coreBindingNavigator1;
     }
 }
 
