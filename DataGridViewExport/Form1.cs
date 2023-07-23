@@ -44,7 +44,7 @@ public partial class Form1 : Form
 
     private void AboutToolStripButton_Click(object sender, EventArgs e)
     {
-        MessageBox.Show("Test");
+        MessageBox.Show("Inserted toolstrip button");
     }
 
     private void ExportButton_Click(object sender, EventArgs e)
