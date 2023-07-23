@@ -1,5 +1,7 @@
 # How to better interact with data in Window Forms
 
+[Article](https://dev.to/karenpayneoregon/how-to-better-interact-with-data-in-window-forms-24lh)
+
 Learn the basics of working with a BindingList and BindSource where the objective is to export stong typed to Excel formated and unformated along with some ideas for better interacting with data in a DataGridView plus revealing the Missing BindingNavigator in Visual Studio 2022.
 
 The included repository is for showing several important things, properly working with data in a `DataGridView` using `BindingList` and `BindingSource` and easily exporting data to `Excel` which in the provided code samples are from a DataGridView. Also promotes using class projects for reusable code rather than copy and pasting code from project to projects.
@@ -270,6 +272,7 @@ In the project DataGridViewExport1 CoreBindingNavigator is used plus a button is
 
 - By using BindingList/BindingSource
     - You are not limited to just DataGridView, bindings can be done on TextBoxes for instance.
+- Provides several simple examples for exporting DataGridView to Excel
 
 
 | Project        |   Description    
