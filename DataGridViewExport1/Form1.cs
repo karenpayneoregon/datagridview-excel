@@ -2,9 +2,9 @@ using NorthWind2020Library.Classes;
 using NorthWind2020Library.Models;
 using System.ComponentModel;
 using DataGridViewLibrary.Extensions;
-using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using SpreadSheetLightImportDataTable.Classes;
-using System.Windows.Forms;
+
+
 
 namespace DataGridViewExport1;
 
@@ -19,9 +19,10 @@ public partial class Form1 : Form
         InitializeComponent();
 
         _customersForExcels = CustomerOperations.FromJson();
-
-        _bindingList = new SortableBindingList<CustomersForExcel>(_customersForExcels);
-
+        
+        // BLL is defined in the project file
+        _bindingList = new BLL.SortableBindingList<CustomersForExcel>(_customersForExcels);
+        
         _bindingSource.DataSource = _bindingList;
         dataGridView1.DataSource = _bindingSource;
         dataGridView1.Columns["id"]!.Visible = false;
