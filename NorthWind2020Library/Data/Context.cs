@@ -44,7 +44,7 @@ public partial class Context : DbContext
         if (!optionsBuilder.IsConfigured)
         {
             // for this demo we are not concerned about security
-            optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=NorthWind2020;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=NorthWind2020;Integrated Security=True;Encrypt=False");
         }
     }
 

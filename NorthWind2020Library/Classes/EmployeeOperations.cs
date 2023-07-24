@@ -1,4 +1,5 @@
-﻿using NorthWind2020Library.Data;
+﻿using System.Security.Cryptography.X509Certificates;
+using NorthWind2020Library.Data;
 using NorthWind2020Library.Models;
 
 namespace NorthWind2020Library.Classes;
@@ -39,4 +40,13 @@ public class EmployeeOperations
 
     }
 
+
+
+}
+
+public class EmployeesLastNameComparer : IComparer<Employees>
+{
+
+    public int Compare(Employees x, Employees y) 
+        => string.Compare(x.LastName, y.LastName, StringComparison.Ordinal);
 }
