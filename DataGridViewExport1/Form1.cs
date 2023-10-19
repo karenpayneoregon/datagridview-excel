@@ -3,6 +3,7 @@ using NorthWind2020Library.Models;
 using System.ComponentModel;
 using DataGridViewLibrary.Extensions;
 using SpreadSheetLightImportDataTable.Classes;
+// ReSharper disable LocalizableElement
 
 
 
