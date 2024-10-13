@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Windows.Forms;
 using BindingListLibrary;
 using DataGridViewExport.Classes;
@@ -50,6 +54,21 @@ public partial class Form1 : Form
     private void ExportButton_Click(object sender, EventArgs e)
     {
         dataGridView1.ExportRowsRaw("contacts.csv");
+        File.WriteAllText("contacts.json",dataGridView1.SerializeToJson());
+
+        var options = new JsonSerializerOptions
+        {
+            IncludeFields = true
+        };
+
+        List<ItemRecord> data = JsonSerializer.Deserialize<List<ItemRecord>>(dataGridView1.SerializeToJson(), options);
+
+        var smallList = data.Take(3);
+        foreach (var itemRecord in smallList)
+        {
+            Debug.WriteLine($"{itemRecord.Row}");
+        }
+
 
         Shake(this);
     }

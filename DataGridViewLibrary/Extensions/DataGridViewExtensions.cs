@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Text.Json;
 #pragma warning disable CS8602
 #pragma warning disable CS8619
 
@@ -25,6 +26,28 @@ namespace DataGridViewLibrary.Extensions
                 ))
                 .Select(@row => @row.RowItem));
         }
+
+        /// <summary>
+        /// Serializes the rows of a <see cref="DataGridView"/> to a JSON string.
+        /// </summary>
+        /// <param name="dataGridView">The <see cref="DataGridView"/> containing the rows to serialize.</param>
+        /// <param name="defaultNullValue">The default value to use for cells that are null or empty.</param>
+        /// <returns>A JSON string representing the rows of the <see cref="DataGridView"/>.</returns>
+        public static string SerializeToJson(this DataGridView dataGridView, string defaultNullValue = "(empty)")
+        {
+            List<ItemRecord> rowRecords = dataGridView.Rows
+                .Cast<DataGridViewRow>()
+                .Where(row => !row.IsNewRow)
+                .Select(row => new ItemRecord(string.Join(",", row.Cells.Cast<DataGridViewCell>()
+                    .Select(cell => cell.Value?.ToString() ?? defaultNullValue))))
+                .ToList();
+
+            return JsonSerializer.Serialize(rowRecords, new JsonSerializerOptions
+            {
+                WriteIndented = true 
+            });
+        }
+
 
         /// <summary>
         /// Expand columns to show all cell data
@@ -99,7 +122,37 @@ namespace DataGridViewLibrary.Extensions
         }
     }
 
-    internal record RowRecord(DataGridViewRow Row, string RowItem);
+    public class ItemRecord
+    {
+        public string Row { get; set; }
+
+        public ItemRecord() { }
+
+        public ItemRecord(string rowItem)
+        {
+            Row = rowItem;
+        }
+    }
+
+
+    internal class RowRecord
+    {
+        public RowRecord(DataGridViewRow Row, string RowItem)
+        {
+            this.Row = Row;
+            this.RowItem = RowItem;
+        }
+
+        public DataGridViewRow Row { get; init; }
+        public string RowItem { get; init; }
+
+        public void Deconstruct(out DataGridViewRow Row, out string RowItem)
+        {
+            Row = this.Row;
+            RowItem = this.RowItem;
+        }
+    }
+
 
 
 }

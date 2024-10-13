@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography.X509Certificates;
 using NorthWind2020Library.Data;
 using NorthWind2020Library.Models;
+#pragma warning disable CS8767 // Nullability of reference types in type of parameter doesn't match implicitly implemented member (possibly because of nullability attributes).
 
 namespace NorthWind2020Library.Classes;
 
